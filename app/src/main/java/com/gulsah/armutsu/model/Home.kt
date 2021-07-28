@@ -6,9 +6,12 @@ import com.google.gson.annotations.SerializedName
 data class Home(
     @SerializedName("all_services")
     @Expose
-    var allServices: List<Services>,
+    var allServicesList: List<Services>,
+    @SerializedName("popular")
+    @Expose
+    var popularList: List<Services>,
     @SerializedName("posts")
     @Expose
-    var posts: List<Posts>
+    var postsList: List<Posts>
 ) {
 }
