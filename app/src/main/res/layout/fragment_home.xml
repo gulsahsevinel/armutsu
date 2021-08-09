@@ -3,6 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="homeFragment"
+            type="com.gulsah.armutsu.view.HomeFragment" />
+
+        <variable
+            name="adapter"
+            type="com.gulsah.armutsu.adapter.ServicesAdapter" />
+    </data>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -157,6 +168,14 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvAllServices"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:adapter="@{adapter}"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -167,6 +186,14 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPopular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:adapter="@{adapter}"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -176,6 +203,8 @@
                 android:textColor="@color/blue_gray"
                 android:textSize="24sp"
                 android:textStyle="bold" />
+
+
 
 
         </LinearLayout>

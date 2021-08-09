@@ -19,24 +19,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         hdaoi = ApiUtils.getHome()
-        getHome()
 
     }
 
-    fun getHome() {
-        hdaoi.home().enqueue(object : Callback<Home> {
-            override fun onResponse(call: Call<Home>, response: Response<Home>) {
-                var listServices = response.body()!!.allServices
-                for (k: Services in listServices) {
-                    Log.e("services", k.toString())
-                }
-            }
 
-            override fun onFailure(call: Call<Home>, t: Throwable) {
-                Log.e("onFailure", "fail")
-            }
-
-        })
-
-    }
 }
