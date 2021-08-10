@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.gulsah.armutsu.R
+import com.gulsah.armutsu.adapter.PopularAdapter
 import com.gulsah.armutsu.adapter.ServicesAdapter
 import com.gulsah.armutsu.databinding.FragmentHomeBinding
 import com.gulsah.armutsu.viewmodel.HomeViewModel
@@ -18,7 +19,8 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var viewModel: HomeViewModel
-    private lateinit var adapter: ServicesAdapter
+    private lateinit var servicesAdapter: ServicesAdapter
+    private lateinit var popularAdapter : PopularAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,11 +31,17 @@ class HomeFragment : Fragment() {
         binding.homeFragment = this
         binding.rvAllServices.layoutManager =
             GridLayoutManager(context, 2, GridLayoutManager.HORIZONTAL, false)
+        binding.rvPopular.layoutManager =
+            GridLayoutManager(context, 1, GridLayoutManager.HORIZONTAL, false)
 
         viewModel.servicesList.observe(viewLifecycleOwner)
         {
-            adapter = ServicesAdapter(it, requireContext())
-            binding.adapter = adapter
+            servicesAdapter = ServicesAdapter(it, requireContext())
+            binding.servicesAdapter = servicesAdapter
+        }
+        viewModel.popularlist.observe(viewLifecycleOwner){
+            popularAdapter = PopularAdapter(it,requireContext())
+            binding.popularAdapter = popularAdapter
         }
         return binding.root
     }

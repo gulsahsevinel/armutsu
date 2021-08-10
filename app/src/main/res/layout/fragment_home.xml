@@ -10,8 +10,11 @@
             type="com.gulsah.armutsu.view.HomeFragment" />
 
         <variable
-            name="adapter"
+            name="servicesAdapter"
             type="com.gulsah.armutsu.adapter.ServicesAdapter" />
+        <variable
+            name="popularAdapter"
+            type="com.gulsah.armutsu.adapter.PopularAdapter" />
     </data>
 
     <ScrollView
@@ -173,7 +176,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
-                android:adapter="@{adapter}"
+                android:adapter="@{servicesAdapter}"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
 
             <TextView
@@ -186,12 +189,13 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvPopular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp"
-                android:adapter="@{adapter}"
+                android:adapter="@{popularAdapter}"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
 
             <TextView
